@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateRegisterComponent implements OnInit {
   user = {
+    name: '',
     email: '',
     password: ''
     }
     login() {
-      alert('email: ' + this.user.email + ' password: ' + this.user.password)
+      alert('name: ' + this.user.name + ' email: ' + this.user.email + ' password: ' + this.user.password)
     }
   constructor() { }
 

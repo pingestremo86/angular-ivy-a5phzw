@@ -14,12 +14,20 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveLoginComponent } from './reactive-login/reactive-login.component';
 import { ConcatenationPipe } from './concatenation.pipe';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { NavComponent } from './nav/nav.component';
+import { CommonModule } from '@angular/common';
+
+const routes: Routes = [
+  { path: '', component: PostsListComponent },
+  { path: 'login', component: ReactiveLoginComponent }
+];
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot(routes)],
   declarations: [ AppComponent, HelloComponent, TestComponent, 
                   FirstComponent, CeoComponent, DirComponent, 
-                  TemplateRegisterComponent, ReactiveRegisterComponent, PostsListComponent, ReactiveLoginComponent, ConcatenationPipe ],
+                  TemplateRegisterComponent, ReactiveRegisterComponent, PostsListComponent, ReactiveLoginComponent, ConcatenationPipe, NavComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

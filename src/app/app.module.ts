@@ -10,12 +10,16 @@ import { CeoComponent } from './ceo/ceo.component';
 import { DirComponent } from './dir/dir.component';
 import { TemplateRegisterComponent } from './template-register/template-register.component';
 import { ReactiveRegisterComponent } from './reactive-register/reactive-register.component';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveLoginComponent } from './reactive-login/reactive-login.component';
+import { ConcatenationPipe } from './concatenation.pipe';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, TestComponent, 
                   FirstComponent, CeoComponent, DirComponent, 
-                  TemplateRegisterComponent, ReactiveRegisterComponent ],
+                  TemplateRegisterComponent, ReactiveRegisterComponent, PostsListComponent, ReactiveLoginComponent, ConcatenationPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

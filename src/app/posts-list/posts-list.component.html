@@ -1,0 +1,4 @@
+<section>Posts</section>
+  <table *ngFor="let singlepost of postList$ | async">
+    <tr><td>{{ singlepost | concatenation }}</td><td>{{ singlepost.title | uppercase }}</td><td>{{ singlepost.body }}</td></tr>
+  </table>

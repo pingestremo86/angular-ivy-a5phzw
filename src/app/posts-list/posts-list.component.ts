@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Post } from '../../post';
 import { PostService } from '../../post.service';
@@ -11,7 +12,7 @@ import { PostService } from '../../post.service';
 export class PostsListComponent implements OnInit {
   showedposts: Post[] = [];
   postList$: Observable<Post[]>
-  constructor(private _post: PostService) { }
+  constructor(private _post: PostService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.postList$=this._post.getProfile()

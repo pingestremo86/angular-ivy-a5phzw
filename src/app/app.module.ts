@@ -14,16 +14,19 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveLoginComponent } from './reactive-login/reactive-login.component';
 import { ConcatenationPipe } from './concatenation.pipe';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 import { FindPostComponent } from './find-post/find-post.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: PostsListComponent },
+  { path: '', canActivate: [AuthGuard], component: PostsListComponent },
   { path: 'login', component: ReactiveLoginComponent },
   { path: 'postid/:id', component: FindPostComponent},
-  { path: 'create', component: CreatePostComponent}
+  { path: 'create', component: CreatePostComponent},
+  { path: 'editpost/:id', component: CreatePostComponent},
+  { path: 'lang', component: DirComponent}
 ];
 
 @NgModule({

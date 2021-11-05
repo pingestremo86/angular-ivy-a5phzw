@@ -10,16 +10,18 @@ export class PostService {
  
   constructor(private client: HttpClient) { }
  
- getProfile() {
+  getProfile() {
+      return this
+      .client
+      .get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+  }
+ 
+  getPost(id: string) {
     return this
     .client
-    .get<Post[]>('https://jsonplaceholder.typicode.com/posts')
- }
- getPost(id: string) {
-  return this
-  .client
-  .get<Post>('https://jsonplaceholder.typicode.com/posts/' + id)
+    .get<Post>('https://jsonplaceholder.typicode.com/posts/' + id)
   }
+ 
   createPost(title: string, body: string) {
     const requestBody = {
       title: title,
@@ -28,5 +30,15 @@ export class PostService {
     return this
     .client
     .post('https://jsonplaceholder.typicode.com/posts',requestBody)
+   }
+  
+  editPost(id: string ,title: string, body: string) {
+    const requestBody = {
+      title: title,
+      body: body
     }
+    return this
+    .client
+    .put('https://jsonplaceholder.typicode.com/posts/'+id,requestBody)
+  }
 }
